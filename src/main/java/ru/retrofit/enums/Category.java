@@ -6,12 +6,13 @@ import javax.swing.*;
 
 public enum Category {
     FOOD(1, "Food"),
-    FURNITURE(2, "Furniture");
+    ELECTRONIC(2,"Electronic"),
+    FURNITURE(3, "Furniture");
 
     @Getter
-    private Integer id;
+    private final Integer id;
     @Getter
-    private String name;
+    private final String name;
 
 
     Category(Integer id, String name) {
