@@ -14,10 +14,11 @@ public class CategoriesTests extends BaseTest {
 
     @ParameterizedTest
     @EnumSource(value = ru.retrofit.enums.Category.class)
-    void getFoodCategoryTest(ru.retrofit.enums.Category category) throws IOException {
+    void getCategoriesTest(ru.retrofit.enums.Category category) throws IOException {
         Response<Category> response = categoryService
                 .getCategory(category.getId())
                 .execute();
+        assert response.body() != null;
         assertThat(response.body().getTitle()).isEqualTo(category.getName());
         response.
                 body().
