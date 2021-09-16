@@ -24,7 +24,8 @@ public class PostProductTests extends BaseTest {
     }
 
     @Test
-    void createProductWithIntPriceTest() throws IOException {
+    void IntegerPriceTest() throws IOException {
+        product.setPrice(888);
         Response<Product> response = productService
                 .createProduct(product)
                 .execute();
