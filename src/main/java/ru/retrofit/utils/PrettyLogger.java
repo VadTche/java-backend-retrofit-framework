@@ -10,8 +10,8 @@ public class PrettyLogger implements HttpLoggingInterceptor.Logger {
     public void log(String s) {
         String message = s.trim();
         ObjectMapper mapper = new ObjectMapper();
-        if (message.startsWith("{") && (message.endsWith("}") || message.startsWith("[") && message.endsWith("]"))) {
-//            message = s;
+        if (message.startsWith("{") && message.endsWith("}") || message.startsWith("[") && message.endsWith("]")) {
+            message = s;
             try {
                 Object value = mapper.readValue(message, Object.class);
                 String prettyJsonValue = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(value);

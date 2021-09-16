@@ -13,7 +13,7 @@ public class BaseTest {
     static ProductService productService;
     static Faker faker;
 
-    @BeforeAll
+    @BeforeAll //создание клиента
     static void beforeAll() {
         retrofit = RetrofitUtils.getRetrofit();
         categoryService = retrofit.create(CategoryService.class);
