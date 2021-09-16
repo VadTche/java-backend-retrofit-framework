@@ -1,22 +1,27 @@
 package ru.retrofit.tests;
 
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.EnumSource;
 import retrofit2.Response;
 import ru.retrofit.dto.Category;
 
 import java.io.IOException;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static ru.retrofit.enums.CategoryEnum.FOOD;
 
-public class CategoriesTests extends BaseTest{
+public class CategoriesTests extends BaseTest {
 
-    @Test
-    void getFoodCategoryTest() throws IOException {
+
+    @ParameterizedTest
+    @EnumSource(value = ru.retrofit.enums.Category.class)
+    void getFoodCategoryTest(ru.retrofit.enums.Category category) throws IOException {
         Response<Category> response = categoryService
-                .getCategory(FOOD.getId())
+                .getCategory(category.getId())
                 .execute();
-        assertThat(response.isSuccessful()).isTrue();
-        assertThat(response.body().getTitle()).isEqualTo(FOOD.getTitle());
+        assertThat(response.body().getTitle()).isEqualTo(category.getName());
+        response.
+                body().
+                getProducts()
+                .forEach(e -> assertThat(e.getCategoryTitle()).isEqualTo(category.getName()));
     }
 }

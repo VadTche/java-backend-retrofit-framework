@@ -5,7 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import retrofit2.Response;
 import ru.retrofit.dto.Product;
-import ru.retrofit.enums.CategoryEnum;
+import ru.retrofit.enums.Category;
 
 import java.io.IOException;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -18,7 +18,7 @@ public class ProductsTests extends BaseTest {
     void setUp() {
         product=  new Product()
                 .withTitle(faker.food().dish())
-                .withCategoryTitle(CategoryEnum.FOOD.getTitle())
+                .withCategoryTitle(Category.FOOD.getName())
                 .withPrice(1000);
     }
 
