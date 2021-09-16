@@ -4,22 +4,23 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import retrofit2.Response;
-import ru.retrofit.dto.Product;
+import ru.retrofit.dto.*;
 import ru.retrofit.enums.Category;
 
 import java.io.IOException;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class ProductsTests extends BaseTest {
+public class PostProductTests extends BaseTest {
     Product product;
     Integer id;
 
     @BeforeEach
     void setUp() {
         product=  new Product()
-                .withTitle(faker.food().dish())
-                .withCategoryTitle(Category.FOOD.getName())
-                .withPrice(1000);
+                .withTitle(faker.dog().memePhrase())
+                .withCategoryTitle(Category.ELECTRONIC.getName())
+                .withPrice(999);
     }
 
     @Test
