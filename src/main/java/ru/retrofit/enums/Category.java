@@ -3,6 +3,7 @@ package ru.retrofit.enums;
 import lombok.Getter;
 
 public enum Category {
+
     FOOD(1, "Food"),
     ELECTRONIC(2,"Electronic"),
     FURNITURE(3, "Furniture"),

@@ -2,10 +2,12 @@ package ru.retrofit.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
+import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Setter
 @Data
 public class Category {
 
