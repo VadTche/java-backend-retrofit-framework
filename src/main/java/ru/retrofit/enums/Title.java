@@ -10,7 +10,9 @@ public enum Title {
     ONE_SYMBOL("1 symbol"),
     TEN_SYMBOLS("10 symbols"),
     ONE_HUNDRED_SYMBOLS("100 symbols"),
-    BILLION_SYMBOLS("Billion symbols");
+    BILLION_SYMBOLS("Billion symbols"),
+    EMPTY("Empty"),
+    NULL("Null");
 
     @Getter
     private String title;
