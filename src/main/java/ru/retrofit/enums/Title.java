@@ -1,6 +1,5 @@
 package ru.retrofit.enums;
 
-import lombok.Getter;
 import lombok.Setter;
 
 public enum Title {
@@ -18,7 +17,6 @@ public enum Title {
     SPACE(" ", 999, "Electronic"),
     NULL(null, 999, "Electronic");
 
-    @Getter
     @Setter
     private String title;
     private final Integer price;

@@ -6,7 +6,6 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.EnumSource;
 import retrofit2.Response;
 import ru.retrofit.dto.Product;
-import ru.retrofit.enums.Title;
 
 import java.io.IOException;
 
@@ -19,10 +18,9 @@ public class PostProductTests extends BaseTest {
     @BeforeEach
     void setUp() {
         product=  new Product()
-                .withTitle(Title.EMPTY.getTitle())
+                .withTitle(faker.animal().name())
                 .withPrice(999)
                 .withCategoryTitle("Electronic");
-
     }
 
     @ParameterizedTest
