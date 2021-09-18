@@ -30,12 +30,12 @@ public class PostProductTests extends BaseTest {
     void createTitleTest(ru.retrofit.enums.Title tit) throws IOException {
         product=  new Product()
                 .withTitle(tit.getTitle())
-                .withPrice(product.getPrice())
-                .withCategoryTitle(product.getCategoryTitle());
+                .withPrice(tit.getPrice())
+                .withCategoryTitle(tit.getCategoryTitle());
         Response<Product> response = productService
                 .createProduct(product)
                 .execute();
-        assert response.body() != null;
+        id = response.body().getId();
         assertThat(response.body().getCategoryTitle()).isEqualTo(product.getCategoryTitle());
         assertThat(response.body().getTitle()).isEqualTo(product.getTitle());
         assertThat(response.body().getPrice()).isEqualTo(product.getPrice());

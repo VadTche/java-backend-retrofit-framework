@@ -21,12 +21,24 @@ public enum Title {
     @Getter
     @Setter
     private String title;
-    private Integer price;
-    private String categoryTitle;
+    private final Integer price;
+    private final String categoryTitle;
 
     Title(String title, Integer price, String categoryTitle) {
         this.title = title;
         this.price = price;
         this.categoryTitle = categoryTitle;
     }
+    public String getTitle() {
+        return title;
+    }
+
+    public Integer getPrice() {
+        return price;
+    }
+
+    public String getCategoryTitle() {
+        return categoryTitle;
+    }
+
 }
