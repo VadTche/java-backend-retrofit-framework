@@ -1,27 +1,32 @@
 package ru.retrofit.enums;
 
 import lombok.Getter;
+import lombok.Setter;
 
 public enum Title {
 
-    LATIN("Latin"),
-    CYRILLIC("Кириллица"),
-    CHINESE("汉字"),
-    NON_LETTERS("#$%@^&"),
-    ONE_SYMBOL("F"),
+    LATIN("Latin", 999, "Electronic"),
+    CYRILLIC("Кириллица", 999, "Electronic"),
+    CHINESE("汉字", 999, "Electronic"),
+    NON_LETTERS("#$%@^&", 999, "Electronic"),
+    ONE_SYMBOL("F", 999, "Electronic"),
     ONE_HUNDRED_SYMBOLS("100symbols100symbols100symbols100symbols100symbols" +
-            "100symbols100symbols100symbols 100symbols100symbols"),
+            "100symbols100symbols100symbols 100symbols100symbols", 999, "Electronic"),
     ONE_HUNDRED_SIXTY_SYMBOLS("160symbols160symbols160symbols160symbols160symbols160symbols160symbols160symbols" +
-            "160symbols160symbols160symbols160symbols160symbols160symbols160symbols160symbols"),
-    EMPTY(""),
-    SPACE(" "),
-    NULL(null);
+            "160symbols160symbols160symbols160symbols160symbols160symbols160symbols160symbols", 999, "Electronic"),
+    EMPTY("", 999, "Electronic"),
+    SPACE(" ", 999, "Electronic"),
+    NULL(null, 999, "Electronic");
 
     @Getter
+    @Setter
     private String title;
+    private Integer price;
+    private String categoryTitle;
 
-
-    Title(String title) {
+    Title(String title, Integer price, String categoryTitle) {
         this.title = title;
+        this.price = price;
+        this.categoryTitle = categoryTitle;
     }
 }
