@@ -23,7 +23,7 @@ public class PostProductTests extends BaseTest {
                 .withCategoryTitle("Electronic");
     }
 
-// не успел разобраться почему эти тесты с невалидными значениями переменных не валятся
+// не успел разобраться почему эти тесты проходят и с валидными и с невалидными значениями переменных
     @ParameterizedTest
     @EnumSource(value = ru.retrofit.enums.Title.class)
     void createTitleTest(ru.retrofit.enums.Title tit) throws IOException {

@@ -11,8 +11,10 @@ public enum Price {
     INVALID_ZERO("Latin",0, "Electronic");
 
     @Getter
-    private String title;
+    private final String title;
+    @Getter
     private final Integer price;
+    @Getter
     private final String categoryTitle;
 
     Price(String title, Integer price, String categoryTitle) {

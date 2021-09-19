@@ -18,7 +18,9 @@ public enum Title {
 
     @Setter
     private String title;
+    @Setter
     private final Integer price;
+    @Setter
     private final String categoryTitle;
 
     Title(String title, Integer price, String categoryTitle) {
