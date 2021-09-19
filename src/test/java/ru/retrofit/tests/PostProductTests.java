@@ -60,19 +60,6 @@ public class PostProductTests extends BaseTest {
         assertThat(response.body().getId()).isNotNull();
     }
 
-/*    @Test
-    void MinusPriceTest() throws IOException {
-        product.setPrice(-888);
-        Response<Product> response = productService
-                .createProduct(product)
-                .execute();
-        id = response.body().getId();
-        assertThat(response.body().getCategoryTitle()).isEqualTo(product.getCategoryTitle());
-        assertThat(response.body().getTitle()).isEqualTo(product.getTitle());
-        assertThat(response.body().getPrice()).isEqualTo(product.getPrice());
-        assertThat(response.body().getId()).isNotNull();
-    }*/
-
     @AfterEach
     void tearDown() throws IOException {
         productService.deleteProduct(id).execute();
