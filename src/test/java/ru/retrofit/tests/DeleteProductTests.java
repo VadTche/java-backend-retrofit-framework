@@ -42,7 +42,7 @@ import java.io.IOException;
         void deleteUnExistingProductTest() throws IOException{
 
             Response<ResponseBody> response = productService
-                    .deleteProduct(-777)
+                    .deleteProduct(77777)
                     .execute();
             try {
                 System.out.println(response.body().string());
