@@ -36,7 +36,8 @@ public class PostProductTests extends BaseTest {
                 .execute();
         id = response.body().getId();
         assertThat(response.body().getCategoryTitle()).isEqualTo(product.getCategoryTitle());
-        assertThat(response.body().getTitle()).isEqualTo(tit.getTitle());
+        assertThat(response.body().getTitle()).isEqualTo(product.getTitle());
+//        assertThat(response.body().getTitle()).isEqualTo(tit.getTitle());
         assertThat(response.body().getPrice()).isEqualTo(product.getPrice());
         assertThat(response.body().getId()).isNotNull();
     }
@@ -54,7 +55,8 @@ public class PostProductTests extends BaseTest {
         id = response.body().getId();
         assertThat(response.body().getCategoryTitle()).isEqualTo(product.getCategoryTitle());
         assertThat(response.body().getTitle()).isEqualTo(product.getTitle());
-        assertThat(response.body().getPrice()).isEqualTo(pr.getPrice());
+        assertThat(response.body().getPrice()).isEqualTo(product.getPrice());
+//        assertThat(response.body().getPrice()).isEqualTo(pr.getPrice());
         assertThat(response.body().getId()).isNotNull();
     }
 
