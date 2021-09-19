@@ -39,6 +39,23 @@ public class PostProductTests extends BaseTest {
         assertThat(response.body().getPrice()).isEqualTo(product.getPrice());
         assertThat(response.body().getId()).isNotNull();
     }
+
+    @ParameterizedTest
+    @EnumSource(value = ru.retrofit.enums.Price.class)
+    void createPriceTest(ru.retrofit.enums.Price pr) throws IOException {
+        product=  new Product()
+                .withTitle(pr.getTitle())
+                .withPrice(pr.getPrice())
+                .withCategoryTitle(pr.getCategoryTitle());
+        Response<Product> response = productService
+                .createProduct(product)
+                .execute();
+        id = response.body().getId();
+        assertThat(response.body().getCategoryTitle()).isEqualTo(product.getCategoryTitle());
+        assertThat(response.body().getTitle()).isEqualTo(product.getTitle());
+        assertThat(response.body().getPrice()).isEqualTo(product.getPrice());
+        assertThat(response.body().getId()).isNotNull();
+    }
 /*
     @Test
     void IntegerPriceTest() throws IOException {

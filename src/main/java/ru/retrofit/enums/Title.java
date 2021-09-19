@@ -29,11 +29,9 @@ public enum Title {
     public String getTitle() {
         return title;
     }
-
     public Integer getPrice() {
         return price;
     }
-
     public String getCategoryTitle() {
         return categoryTitle;
     }
