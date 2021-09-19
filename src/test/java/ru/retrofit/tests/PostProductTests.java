@@ -23,6 +23,7 @@ public class PostProductTests extends BaseTest {
                 .withCategoryTitle("Electronic");
     }
 
+// не успел разобраться почему эти тесты проходят и с валидными и с невалидными значениями переменных
     @ParameterizedTest
     @EnumSource(value = ru.retrofit.enums.Title.class)
     void createTitleTest(ru.retrofit.enums.Title tit) throws IOException {
@@ -36,13 +37,18 @@ public class PostProductTests extends BaseTest {
         id = response.body().getId();
         assertThat(response.body().getCategoryTitle()).isEqualTo(product.getCategoryTitle());
         assertThat(response.body().getTitle()).isEqualTo(product.getTitle());
+//        assertThat(response.body().getTitle()).isEqualTo(tit.getTitle());
         assertThat(response.body().getPrice()).isEqualTo(product.getPrice());
         assertThat(response.body().getId()).isNotNull();
     }
-/*
-    @Test
-    void IntegerPriceTest() throws IOException {
-        product.setPrice(888);
+
+    @ParameterizedTest
+    @EnumSource(value = ru.retrofit.enums.Price.class)
+    void createPriceTest(ru.retrofit.enums.Price pr) throws IOException {
+        product=  new Product()
+                .withTitle(pr.getTitle())
+                .withPrice(pr.getPrice())
+                .withCategoryTitle(pr.getCategoryTitle());
         Response<Product> response = productService
                 .createProduct(product)
                 .execute();
@@ -50,9 +56,10 @@ public class PostProductTests extends BaseTest {
         assertThat(response.body().getCategoryTitle()).isEqualTo(product.getCategoryTitle());
         assertThat(response.body().getTitle()).isEqualTo(product.getTitle());
         assertThat(response.body().getPrice()).isEqualTo(product.getPrice());
+//        assertThat(response.body().getPrice()).isEqualTo(pr.getPrice());
         assertThat(response.body().getId()).isNotNull();
     }
-*/
+
     @AfterEach
     void tearDown() throws IOException {
         productService.deleteProduct(id).execute();

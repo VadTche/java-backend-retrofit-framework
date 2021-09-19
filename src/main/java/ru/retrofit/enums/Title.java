@@ -18,7 +18,9 @@ public enum Title {
 
     @Setter
     private String title;
+    @Setter
     private final Integer price;
+    @Setter
     private final String categoryTitle;
 
     Title(String title, Integer price, String categoryTitle) {
@@ -29,11 +31,9 @@ public enum Title {
     public String getTitle() {
         return title;
     }
-
     public Integer getPrice() {
         return price;
     }
-
     public String getCategoryTitle() {
         return categoryTitle;
     }

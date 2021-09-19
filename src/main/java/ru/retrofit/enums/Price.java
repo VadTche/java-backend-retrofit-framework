@@ -4,17 +4,32 @@ import lombok.Getter;
 
 public enum Price {
 
-    VALID_INT(999),
-    VALID_MAX_INT(2147483647),
-    VALID_DOUBLE(999/5),
-    INVALID_MINUS(-999),
-    INVALID_ZERO(0);
+    VALID_INT("Latin",999, "Electronic"),
+    VALID_MAX_INT("Latin",2147483647, "Electronic"),
+    VALID_DOUBLE("Latin",999/5, "Electronic"),
+    INVALID_MINUS("Latin",-999, "Electronic"),
+    INVALID_ZERO("Latin",0, "Electronic");
 
     @Getter
-    private Integer price;
+    private final String title;
+    @Getter
+    private final Integer price;
+    @Getter
+    private final String categoryTitle;
 
-
-    Price(Integer price) {
+    Price(String title, Integer price, String categoryTitle) {
+        this.title = title;
         this.price = price;
+        this.categoryTitle = categoryTitle;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+    public Integer getPrice() {
+        return price;
+    }
+    public String getCategoryTitle() {
+        return categoryTitle;
     }
 }

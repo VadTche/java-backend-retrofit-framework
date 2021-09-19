@@ -9,8 +9,9 @@ import lombok.With;
 @With
 @NoArgsConstructor
 @AllArgsConstructor
-public class ErrorBody {
-
+public class ErrorsBody {
+    private String timestamp;
+    private Integer error;
     private Integer status;
     private String message;
     private String path;
