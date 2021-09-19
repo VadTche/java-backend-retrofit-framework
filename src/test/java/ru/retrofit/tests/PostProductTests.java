@@ -61,7 +61,7 @@ public class PostProductTests extends BaseTest {
     }
 
 /*    @Test
-    void IntegerPriceTest() throws IOException {
+    void MinusPriceTest() throws IOException {
         product.setPrice(-888);
         Response<Product> response = productService
                 .createProduct(product)
