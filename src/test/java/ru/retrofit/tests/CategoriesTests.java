@@ -18,11 +18,9 @@ public class CategoriesTests extends BaseTest {
         Response<Category> response = categoryService
                 .getCategory(category.getId())
                 .execute();
-        assert response.body() != null;
-        assertThat(response.body().getTitle()).isEqualTo(category.getName());
-        response.
-                body().
-                getProducts()
-                .forEach(e -> assertThat(e.getCategoryTitle()).isEqualTo(category.getName()));
+        if (response.body() != null) {
+            assertThat(response.body().getTitle()).isEqualTo(category.getName());
+        }
+        response.body().getProducts().forEach(e -> assertThat(e.getCategoryTitle()).isEqualTo(category.getName()));
     }
 }

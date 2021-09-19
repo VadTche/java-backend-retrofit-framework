@@ -10,9 +10,9 @@ public enum Category {
     UN_EXIST_CATEGORY(12, "Woods");
 
     @Getter
-    private Integer id;
+    private final Integer id;
     @Getter
-    private String name;
+    private final String name;
 
 
     Category(Integer id, String name) {

@@ -23,6 +23,7 @@ public class PostProductTests extends BaseTest {
                 .withCategoryTitle("Electronic");
     }
 
+// не успел разобраться почему эти тесты с невалидными значениями переменных не валятся
     @ParameterizedTest
     @EnumSource(value = ru.retrofit.enums.Title.class)
     void createTitleTest(ru.retrofit.enums.Title tit) throws IOException {
@@ -35,7 +36,7 @@ public class PostProductTests extends BaseTest {
                 .execute();
         id = response.body().getId();
         assertThat(response.body().getCategoryTitle()).isEqualTo(product.getCategoryTitle());
-        assertThat(response.body().getTitle()).isEqualTo(product.getTitle());
+        assertThat(response.body().getTitle()).isEqualTo(tit.getTitle());
         assertThat(response.body().getPrice()).isEqualTo(product.getPrice());
         assertThat(response.body().getId()).isNotNull();
     }
@@ -53,13 +54,13 @@ public class PostProductTests extends BaseTest {
         id = response.body().getId();
         assertThat(response.body().getCategoryTitle()).isEqualTo(product.getCategoryTitle());
         assertThat(response.body().getTitle()).isEqualTo(product.getTitle());
-        assertThat(response.body().getPrice()).isEqualTo(product.getPrice());
+        assertThat(response.body().getPrice()).isEqualTo(pr.getPrice());
         assertThat(response.body().getId()).isNotNull();
     }
-/*
-    @Test
+
+/*    @Test
     void IntegerPriceTest() throws IOException {
-        product.setPrice(888);
+        product.setPrice(-888);
         Response<Product> response = productService
                 .createProduct(product)
                 .execute();
@@ -68,8 +69,8 @@ public class PostProductTests extends BaseTest {
         assertThat(response.body().getTitle()).isEqualTo(product.getTitle());
         assertThat(response.body().getPrice()).isEqualTo(product.getPrice());
         assertThat(response.body().getId()).isNotNull();
-    }
-*/
+    }*/
+
     @AfterEach
     void tearDown() throws IOException {
         productService.deleteProduct(id).execute();
