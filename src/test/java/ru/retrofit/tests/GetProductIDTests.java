@@ -1,4 +1,6 @@
 package ru.retrofit.tests;
 
-public class GetProductIDTests {
+public class GetProductIDTests extends BaseTest{
+
+
 }

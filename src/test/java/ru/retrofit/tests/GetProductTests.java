@@ -8,8 +8,6 @@ import java.io.IOException;
 
 public class GetProductTests extends BaseTest{
 
-    Integer status;
-
     @Test
     void GetAllProductsTest() throws IOException {
 
