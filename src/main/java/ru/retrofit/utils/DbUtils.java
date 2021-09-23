@@ -43,13 +43,6 @@ public class DbUtils {
         return getCategoriesMapper().selectByExample(categoriesExample).get(0);
     }
 
- /*   private static void createNewCategory(CategoriesMapper categoriesMapper) {
-        Categories newCategory = new Categories();
-        newCategory.setTitle(faker.animal().name());
-
-        categoriesMapper.insert(newCategory);
-    } */
-
     public  void deleteAllProductsWithTheCategory(Integer categoryId) {
         // создаем фильтр для удаления продукта по категории
         ProductsExample example = new ProductsExample();
