@@ -40,7 +40,7 @@ public class PostProductTests extends BaseTest {
         Products productFromDb = productsMapper.selectByExample(example).get(0);
         assertThat(productFromDb.getPrice()).isEqualTo(product.getPrice());
         assertThat(productFromDb.getCategory_id()).isEqualTo(Long.valueOf(testCategory.getId()));
-        //не очень уверен, проверяется ли категория на самом деле или это тождество уже изначально
+        //не очень уверен, проверяется ли категория на самом деле или это тождество уже изначально :)
         assertThat(productFromDb.getTitle()).isEqualTo(product.getTitle());
     }
 
@@ -50,7 +50,7 @@ public class PostProductTests extends BaseTest {
         product=  new Product()
                 .withTitle(pr.getTitle())
                 .withPrice(pr.getPrice())
-                .withCategoryTitle(pr.getCategoryTitle());
+                .withCategoryTitle(testCategory.getTitle());
         Response<Product> response = productService
                 .createProduct(product)
                 .execute();
@@ -59,6 +59,17 @@ public class PostProductTests extends BaseTest {
         assertThat(response.body().getTitle()).isEqualTo(product.getTitle());
         assertThat(response.body().getPrice()).isEqualTo(product.getPrice());
         assertThat(response.body().getId()).isNotNull();
+
+        ProductsExample example = new ProductsExample();
+        example.createCriteria()
+                .andCategory_idEqualTo(Long.valueOf(testCategory.getId()))
+                .andPriceEqualTo(pr.getPrice())
+                .andTitleEqualTo(pr.getTitle());
+        Products productFromDb = productsMapper.selectByExample(example).get(0);
+        assertThat(productFromDb.getPrice()).isEqualTo(product.getPrice());
+        assertThat(productFromDb.getCategory_id()).isEqualTo(Long.valueOf(testCategory.getId()));
+        //то же самое
+        assertThat(productFromDb.getTitle()).isEqualTo(product.getTitle());
     }
 
     @AfterEach
