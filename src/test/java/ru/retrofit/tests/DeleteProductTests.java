@@ -1,9 +1,11 @@
 package ru.retrofit.tests;
 
 import okhttp3.ResponseBody;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import retrofit2.Response;
+import ru.retrofit.db.model.Products;
 import ru.retrofit.dto.Product;
 
 import java.io.IOException;
@@ -25,7 +27,7 @@ import java.io.IOException;
             product.setId(id);
         }
 
-        @Test
+        @Test //сюда так и не смог встроить
         void deleteExistingProductTest() throws IOException{
 
             Response<ResponseBody> response = productService
@@ -36,6 +38,14 @@ import java.io.IOException;
             } catch (NullPointerException e) {
                 System.out.println(response.errorBody().string());
             }
+
+      //      ProductsExample example = new ProductsExample();
+     //       example.createCriteria()
+     //               .andIdEqualTo(Long.valueOf(product.getId()));
+     //       Products productFromDb = productsMapper.selectByExample(example).get(0);
+
+            Products productFromDb = productsMapper.selectByPrimaryKey(Long.valueOf(product.getId()));
+            Assertions.assertThat(productFromDb.getId()).isNull();
         }
 
         @Test
