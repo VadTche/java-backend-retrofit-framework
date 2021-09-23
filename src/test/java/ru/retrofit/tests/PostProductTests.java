@@ -68,7 +68,6 @@ public class PostProductTests extends BaseTest {
         Products productFromDb = productsMapper.selectByExample(example).get(0);
         assertThat(productFromDb.getPrice()).isEqualTo(product.getPrice());
         assertThat(productFromDb.getCategory_id()).isEqualTo(Long.valueOf(testCategory.getId()));
-        //то же самое
         assertThat(productFromDb.getTitle()).isEqualTo(product.getTitle());
     }
 

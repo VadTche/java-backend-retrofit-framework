@@ -23,13 +23,13 @@ public enum Price {
         this.categoryTitle = categoryTitle;
     }
 
-    public String getTitle() {
-        return title;
-    }
-    public Integer getPrice() {
-        return price;
-    }
-    public String getCategoryTitle() {
-        return categoryTitle;
-    }
+//    public String getTitle() {
+//        return title;
+//    }
+//    public Integer getPrice() {
+//        return price;
+//    }
+//    public String getCategoryTitle() {
+//        return categoryTitle;
+//    }
 }

@@ -4,6 +4,8 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import retrofit2.Response;
+import ru.retrofit.db.model.Products;
+import ru.retrofit.db.model.ProductsExample;
 import ru.retrofit.dto.Product;
 
 import java.io.IOException;
@@ -39,6 +41,12 @@ public class GetProductIDTests extends BaseTest {
         assertThat(response.body().getTitle()).isEqualTo(product.getTitle());
         assertThat(response.body().getPrice()).isEqualTo(product.getPrice());
         assertThat(response.body().getId()).isNotNull();
+        assertThat(response.body().getId()).isEqualTo(product.getId());
+
+        ProductsExample example = new ProductsExample();
+        example.createCriteria().andIdEqualTo(Long.valueOf(product.getId()));
+        Products productFromDb = productsMapper.selectByExample(example).get(0);
+        assertThat(productFromDb.getId()).isEqualTo(Long.valueOf(product.getId()));
     }
 
     @Test
