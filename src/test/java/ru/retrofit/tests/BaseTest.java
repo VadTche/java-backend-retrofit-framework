@@ -29,14 +29,16 @@ public class BaseTest {
         faker = new Faker();
         productsMapper = DbUtils.getProductsMapper();
         categoriesMapper = DbUtils.getCategoriesMapper();
-
-        String quote = faker.backToTheFuture().quote();
         //создаем новую категорию
+        String quote = faker.backToTheFuture().quote();
         testCategory = DbUtils.getNewTestCategory(quote);
     }
 
     @AfterAll
     static void afterAll() {
+        //ProductsExample example = new ProductsExample();
+        //example.createCriteria().andCategory_idEqualTo(Long.valueOf(testCategory.getId()));
+        //productsMapper.deleteByExample(example);
         DbUtils.deleteAllProductsWithTheCategory(testCategory.getId());
         categoriesMapper.deleteByPrimaryKey(testCategory.getId());
     }

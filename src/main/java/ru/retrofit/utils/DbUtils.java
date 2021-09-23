@@ -15,7 +15,7 @@ import java.io.IOException;
 
 @UtilityClass
 public class DbUtils {
-    private  String resource = "mybatisConfig.xml";
+    private final String resource = "mybatisConfig.xml";
     public SqlSession getSqlSession() {
         SqlSessionFactory sqlSessionFactory = null;
         try {
@@ -42,6 +42,13 @@ public class DbUtils {
         // делаем select этой категории
         return getCategoriesMapper().selectByExample(categoriesExample).get(0);
     }
+
+ /*   private static void createNewCategory(CategoriesMapper categoriesMapper) {
+        Categories newCategory = new Categories();
+        newCategory.setTitle(faker.animal().name());
+
+        categoriesMapper.insert(newCategory);
+    } */
 
     public  void deleteAllProductsWithTheCategory(Integer categoryId) {
         // создаем фильтр для удаления продукта по категории

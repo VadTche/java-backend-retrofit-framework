@@ -9,7 +9,7 @@ public enum Title {
     CHINESE("汉字", 999, "Electronic"),
     NON_LETTERS("#$%@^&", 999, "Electronic"),
     ONE_SYMBOL("F", 999, "Electronic"),
-    FIFTY_SYMBOLS("100symbols100symbols100symbols100symbols100symbols", 999, "Electronic"),
+    FIFTY_SYMBOLS("50symbols50symbols50symbols50symbols50symbols", 999, "Electronic"),
     ONE_HUNDRED_SIXTY_SYMBOLS("160symbols160symbols160symbols160symbols160symbols160symbols160symbols160symbols" +
             "160symbols160symbols160symbols160symbols160symbols160symbols160symbols160symbols", 999, "Electronic"),
     SPACE(" ", 999, "Electronic"),
